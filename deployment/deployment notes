@@ -1,0 +1,16 @@
+deployment notes
+
+### exporter_tf ###
+Saves timestamped versions.
+Optional ONNX export if tf2onnx is available.
+
+### version_manager ###
+Keeps a history of every exported model + metrics.
+
+### inference_api ###
+Unified interface for any model type.
+Predicts directly from file path or tensors.
+Optional feature extraction & anomaly scoring.
+
+### for optimization ###
+pip install tensorflow-model-optimization

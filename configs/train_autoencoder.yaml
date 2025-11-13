@@ -1,0 +1,29 @@
+experiment:
+  name: autoenc_test
+  seed: 42
+
+model:
+  name: autoencoder
+  params:
+    encoder_design: configs/models/autoenc_encoder.yaml
+    decoder_design: configs/models/autoenc_decoder.yaml
+
+dataset:
+  name: defect_images
+  params:
+    data_dir: ./data/defects
+    batch_size: 32
+
+optimizer:
+  name: adam
+  params:
+    lr: 0.001
+
+trainer:
+  epochs: 50
+  mixed_precision: False
+  distributed: False
+  diagnostics_interval: 5
+  
+run_overfit_test: True
+diagnostics: True

@@ -1,0 +1,13 @@
+model_design:
+  input_shape: [16, 16, 128]
+  layers:
+    - type: ConvBlock
+      filters: 64
+      activation: relu
+    - type: ConvBlock
+      filters: 32
+      activation: relu
+    - type: tf.keras.layers.Conv2DTranspose
+      filters: 1
+      kernel_size: 1
+      activation: sigmoid

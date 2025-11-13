@@ -1,0 +1,40 @@
+experiment:
+  name: lightcnn_defect_test
+  seed: 42
+
+model:
+  name: lightcnn
+  params:
+    num_classes: 2
+    input_shape: [224, 224, 3]
+
+dataset:
+  name: defect_images
+  params:
+    data_dir: ./data/defects
+    batch_size: 8
+    augmentations: True
+
+loss:
+  name: categorical_crossentropy
+  params: {}
+
+optimizer:
+  name: adam
+  params:
+    lr: 0.001
+
+trainer:
+  epochs: 50
+  mixed_precision: False
+  distributed: False
+  diagnostics_interval: 5
+  
+run_overfit_test: True
+diagnostics: True
+
+export:
+  compress: True
+  pruning_sparsity: 0.5
+  quantize: True
+  cluster: True

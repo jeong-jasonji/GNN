@@ -1,0 +1,27 @@
+experiment:
+  name: defect_segmentation_unet
+  seed: 42
+
+model:
+  name: unet
+  params:
+    input_shape: [128, 128, 3]
+    num_classes: 1
+    filters: [32, 64, 128]
+
+dataset:
+  name: defect_masks
+  params:
+    data_dir: ./data/defect_masks
+    batch_size: 8
+
+loss:
+  name: dice
+optimizer:
+  name: adam
+  params:
+    lr: 0.0005
+
+trainer:
+  epochs: 50
+  diagnostics_interval: 10

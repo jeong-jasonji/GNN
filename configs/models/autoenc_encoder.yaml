@@ -1,0 +1,17 @@
+model_design:
+  input_shape: [64, 64, 3]
+  layers:
+    - type: ConvBlock
+      filters: 16
+      kernel_size: 3
+      activation: relu
+      pooling: max
+    - type: ConvBlock
+      filters: 32
+      kernel_size: 3
+      activation: relu
+      pooling: max
+    - type: Flatten
+    - type: Dense
+      units: 64
+      activation: relu

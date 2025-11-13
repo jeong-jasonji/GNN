@@ -1,0 +1,26 @@
+model_design:
+  input_shape: [224, 224, 3]
+  layers:
+    - type: ConvBlock
+      filters: 16
+      kernel_size: 3
+      activation: relu
+      normalization: batch
+      pooling: max
+    - type: ConvBlock
+      filters: 32
+      kernel_size: 3
+      activation: relu
+      normalization: batch
+      pooling: max
+    - type: ResidualBlock
+      filters: 64
+      blocks: 2
+    - type: GlobalAvgPool
+    - type: DenseBlock
+      units: 64
+      activation: relu
+      dropout: 0.2
+    - type: Dense
+      units: 2
+      activation: softmax

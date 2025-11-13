@@ -1,0 +1,35 @@
+experiment:
+  name: defect_classification_v1
+  seed: 42
+
+model:
+  name: lightcnn
+  params:
+    num_classes: 2
+    input_shape: [224, 224, 3]
+
+dataset:
+  name: defect_images
+  params:
+    data_dir: ./data/defects
+    batch_size: 32
+    augmentations: True
+
+loss:
+  name: cross_entropy
+  params: {}
+
+optimizer:
+  name: adam
+  params:
+    lr: 0.001
+    weight_decay: 0.0
+
+trainer:
+  epochs: 50
+  mixed_precision: False
+  distributed: False
+  diagnostics_interval: 5
+  
+run_overfit_test: True
+diagnostics: True

@@ -1,0 +1,24 @@
+experiment:
+  name: protonet_fewshot
+  seed: 42
+
+model:
+  name: protonet
+  params:
+    encoder_design: configs/models/light_cnn_design.yaml
+    head_design: configs/models/proto_head.yaml
+
+meta:
+  n_way: 5
+  k_shot: 1
+  q_query: 15
+  inner_lr: 0.01
+
+optimizer:
+  name: adam
+  params:
+    lr: 0.001
+
+trainer:
+  epochs: 100
+  diagnostics_interval: 10

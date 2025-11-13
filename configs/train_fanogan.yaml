@@ -1,0 +1,31 @@
+experiment:
+  name: fanogan_test
+  seed: 42
+
+model:
+  name: fanogan
+  params:
+    generator_design: configs/models/autoenc_decoder.yaml
+    discriminator_design: configs/models/discriminator_basic.yaml
+    encoder_design: configs/models/autoenc_encoder.yaml
+
+dataset:
+  name: defect_images
+  params:
+    data_dir: ./data/defects
+    batch_size: 16
+
+optimizer:
+  name: adam
+  params:
+    lr: 0.0002
+    beta_1: 0.5
+
+trainer:
+  epochs: 50
+  mixed_precision: False
+  distributed: False
+  diagnostics_interval: 5
+  
+run_overfit_test: True
+diagnostics: True

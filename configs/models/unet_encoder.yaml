@@ -1,0 +1,10 @@
+model_design:
+  input_shape: [128, 128, 3]
+  layers:
+    - type: ConvBlock
+      filters: 32
+      activation: relu
+      normalization: batch
+    - type: ConvBlock
+      filters: 64
+      pooling: max

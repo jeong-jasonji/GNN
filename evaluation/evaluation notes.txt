@@ -1,0 +1,21 @@
+evaluation notes
+
+### Sanity Checks ###
+- Quick diagnostic to check model stability and training correctness.
+- Helps debug architecture, gradients, and data flow early.
+
+### Generic ### 
+generic checks on graidents and fitting check
+
+### anomaly and ssl checks ###
+checks that modules behave the way we expect it to
+
+Use tensorboard: 
+
+tensorboard --logdir experiments/runs/lightcnn_design_test/logs
+
+ssl/inter_class_distance
+ssl/intra_class_distance
+anomaly/reconstruction_loss
+ssl/embedding_tsne
+anomaly/reconstruction_examples

@@ -1,0 +1,44 @@
+core_notes:
+
+### Registry ###
+Registry: a lightweight, type-safe global store that maps string keys to classes/functions.
+    Multiple registries (MODEL_REGISTRY, DATASET_REGISTRY, etc.) for mapping.
+    New components register via decorators.
+
+Usage:
+from core.registry import MODEL_REGISTRY
+
+@MODEL_REGISTRY.register("lightcnn")
+class LightCNN(tf.keras.Model):
+    ...
+
+now MODEL_REGISTRY.get("lightcnn") will return the lightcnn class
+
+### Builder ###
+Builder: a factory that reads a config (dict/YAML) and uses registries to instantiate objects automatically.
+
+### Base Model ###
+base_model: a template model with abstract methods to ensure implementation
+
+	@abstractmethod:
+
+	The method is declared, but not implemented in the base class.
+
+	Any subclass that inherits from this class must override (i.e., 
+	implement) that method, otherwise Python will raise an error if 
+	you try to instantiate the subclass.
+
+	Subclasses must implement all abstract methods to be instantiable.
+	Used to define interfaces or base class contracts. Enforcing those 
+	subclasses follow a certain structure.
+
+### Base Dataset ###
+base_dataset: a template dataset with abstract methods to ensure implementation
+
+### Base Trainer ###
+base_trainer: a template trainer that has the following:
+	A unified pipeline → reads YAML → builds model/dataset/loss/opt from registry.
+	Also handles reproducibility and checkpointing automatically.
+
+### Utils ###
+utility functions for reproducibility and etc.

@@ -1,0 +1,16 @@
+model_design:
+  input_shape: [64]
+  layers:
+    - type: Dense
+      units: 8*8*32
+      activation: relu
+    - type: tf.keras.layers.Reshape
+      target_shape: [8, 8, 32]
+    - type: ConvBlock
+      filters: 16
+      kernel_size: 3
+      activation: relu
+    - type: tf.keras.layers.Conv2DTranspose
+      filters: 3
+      kernel_size: 3
+      activation: sigmoid

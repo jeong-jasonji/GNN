@@ -1,0 +1,17 @@
+model_design:
+  input_shape: [128, 128, 3]
+  layers:
+    - type: ConvBlock
+      filters: 64
+      activation: relu
+      normalization: batch
+    - type: CBAM
+      ratio: 8
+    - type: ResidualBlock
+      filters: 128
+    - type: SEBlock
+      ratio: 16
+    - type: GlobalAvgPool
+    - type: Dense
+      units: 2
+      activation: softmax

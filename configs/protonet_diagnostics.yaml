@@ -1,0 +1,18 @@
+experiment:
+  name: protonet_diagnostics
+  seed: 42
+
+model:
+  name: protonet
+  params:
+    encoder_design: configs/models/light_cnn_design.yaml
+
+meta:
+  n_way: 5
+  k_shot: 1
+  q_query: 10
+
+trainer:
+  epochs: 50
+  diagnostics_interval: 10
+  meta_diagnostics: True

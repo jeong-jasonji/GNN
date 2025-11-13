@@ -1,0 +1,20 @@
+models notes:
+
+### Backbones ###
+backbone architectures to base models off of.
+
+Specific models can be registered so that we can plug
+and play any previous models.
+
+### Model Components ###
+reusable building blocks for modular model building
+also allows custom blocks to be designed for future use/more modularity.
+
+### Builders ###
+builds the model according to the design file
+
+### Self Supervised ###
+support for self supervised learning methods
+
+### Pre-init encoders ###
+encoder.load_weights("experiments/runs/supcon_defects/best_model.h5")

@@ -1,0 +1,14 @@
+model_design:
+  input_shape: [64, 64, 3]
+  layers:
+    - type: ConvBlock
+      filters: 32
+      activation: leaky_relu
+      pooling: max
+    - type: ConvBlock
+      filters: 64
+      activation: leaky_relu
+      pooling: max
+    - type: GlobalAvgPool
+    - type: Dense
+      units: 1
